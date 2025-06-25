@@ -1,4 +1,4 @@
-# 🤖 THEFULLBOT
+# 🤖 BotZap
 
 Painel moderno de controle para seu bot de WhatsApp automatizado, feito com Node.js + HTML/CSS + API do WhatsApp 📲
 
@@ -69,4 +69,4 @@ Você verá o painel do THEFULLBOT carregado com sucesso ✅
 
 Desenvolvido com ❤️ por [@xthefullx](https://github.com/xthefullx)
 
-© 2025 THEFULLBOT – Todos os direitos reservados.
+© 2025 BotZap – Todos os direitos reservados.
