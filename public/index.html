@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Painel THEFULL BOT</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="header">THEFULLBOT - Painel de Controle</div>
+
+  <!-- Login separado -->
+  <div id="Login" class="card" style="display: none;">
+    <h2>Login</h2>
+    <form id="loginForm">
+      <label for="usuario">Usuário:</label>
+      <input type="text" id="usuario" name="usuario" required />
+
+      <label for="senha">Senha:</label>
+      <input type="password" id="senha" name="senha" required />
+
+      <button type="submit">Entrar</button>
+
+      <p class="error-message" id="errorMessage" style="display: none; color: red;">
+        Credenciais inválidas. Tente novamente.
+      </p>
+    </form>
+  </div>
+
+  <!-- Tutorial de Conexão -->
+  <div id="tutorial" class="card" style="display: none;">
+    <h2>Como Conectar o Bot</h2>
+    <p>Para conectar o THEFULLBOT ao WhatsApp, siga as etapas abaixo:</p>
+    <ol>
+      <li>Faça login na plataforma THEFULLBOT com seu usuário e senha.</li>
+      <li>Após o login, acesse a seção "Status do Bot".</li>
+      <li>Escaneie o QR Code exibido na tela usando o WhatsApp no seu celular.</li>
+      <li>Uma vez conectado, você verá o status "Conectado" e poderá começar a gerenciar clientes e mensagens.</li>
+    </ol>
+    <button onclick="showLogin()">Voltar ao Login</button>
+  </div>
+
+  <!-- Painel principal -->
+  <div id="painel" style="display: none;">
+    <div class="menu">
+      <a href="javascript:void(0)" onclick="showSection('status')">Status do Bot</a>
+      <a href="javascript:void(0)" onclick="showSection('clientes')">Gerenciar Clientes</a>
+      <a href="javascript:void(0)" onclick="showSection('mensagens')">Mensagens Automáticas</a>
+      <a href="javascript:void(0)" onclick="showSection('sobre')">Sobre o Bot</a>
+      <a href="javascript:void(0)" onclick="showSection('configuracoes')">Configurações</a>
+    </div>
+
+    <div class="container">
+      <!-- Cada uma das seções abaixo -->
+      <div id="status" class="card" style="display: none;">
+        <h2>Status do Bot</h2>
+        <p id="statusBot">Carregando...</p>
+        <div id="qrContainer" style="display: none;">
+          <h3>🔄 Escaneie o QR Code</h3>
+          <img id="qrCode" alt="QRCode" />
+        </div>
+      </div>
+
+      <div id="clientes" class="card" style="display: none;">
+        <h2>Clientes Ativos</h2>
+        <div class="form-container">
+          <h3>Adicionar Cliente</h3>
+          <input type="text" id="nome" placeholder="Nome do Cliente" />
+          <input type="text" id="whatsapp" placeholder="WhatsApp" />
+          <input type="date" id="data_expiracao" />
+          <button onclick="adicionarCliente()">Adicionar Cliente</button>
+        </div>
+        <table id="tabelaClientes"></table>
+      </div>
+
+      <div id="mensagens" class="card" style="display: none;">
+        <h2>Mensagens Automáticas</h2>
+        <textarea id="mensagem2dias" readonly></textarea>
+        <textarea id="mensagemVencido" readonly></textarea>
+        <button onclick="salvarMensagens()">Salvar Mensagens</button>
+      </div>
+
+      <div id="sobre" class="card" style="display: none;">
+        <h2>Sobre o THEFULLBOT</h2>
+        <p>Automatização para WhatsApp feito pelo Wellington.</p>
+      </div>
+
+      <div id="configuracoes" class="card" style="display: none;">
+        <h2>Configurações</h2>
+        <input type="text" id="access_token" placeholder="Access Token" />
+        <input type="text" id="empresaNome" placeholder="Nome da Empresa" />
+        <input type="text" id="plano1m" placeholder="Plano 1 Mês" />
+        <input type="text" id="plano6m" placeholder="Plano 6 Meses" />
+        <input type="text" id="plano1a" placeholder="Plano 1 Ano" />
+        <button onclick="atualizarConfiguracoes()">Salvar</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>&copy; 2025 Desenvolvedor | Wellington.</p>
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
